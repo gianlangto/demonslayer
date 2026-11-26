@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #17191B;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-gif {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+.navbar {
+    
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    
+}
+
+.navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    list-style: none;
+}
+
+.navbar a {
+    color: #E8E6DF;
+    text-decoration: none;
+}
+
+li:hover{
+    background-color: #4EB18D;
+}
+
+li{
+    list-style: none;
+  margin: 0;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  
+  /* Smooth Oblong Shape */
+  padding: 12px 32px;
+  border-radius: 9999px;
+  
+  /* Visuals */
+  background-color: #00000000;
+  border: 1px solid #d9e2ec;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#tanjiro {
+    position: absolute;
+    right: 5%;          /* Distance from the right edge */
+    bottom: 0.5%;          /* Aligns him to the bottom edge of the GIF */
+    width: 200px;       /* Adjust this number to make him smaller or larger */
+    height: auto;       /* Keeps his proportions from stretching */
+    z-index: 1;         /* Places him in front of the GIF */
+}
+
+/* Hidden by default (Landscape / Desktop) */
+#rotate-warning {
+    display: none;
+}
+
+/* Shows only when the device is held vertically (Portrait) */
+@media screen and (orientation: portrait) {
+    #rotate-warning {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #17191B;
+        color: #E8E6DF;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2rem;
+        z-index: 9999; /* Sits above everything else */
+    }
+}
