@@ -75,6 +75,9 @@ li:hover{
 }
 
 li{
+    font-size: clamp(1px, 2vw, 999px);
+    padding: clamp(1px, 1.2vw, 999px)
+             clamp(1px, 2vw, 999px);
     list-style: none;
   margin: 0;
   
@@ -84,7 +87,6 @@ li{
   gap: 24px;
   
   /* Smooth Oblong Shape */
-  padding: 12px 32px;
   border-radius: 9999px;
   
   /* Visuals */
@@ -95,12 +97,13 @@ li{
 
 #tanjiro {
     position: absolute;
-    right: 5%;
-    bottom: 0.5%;
+    right: clamp(1px, 2vw, 900px);
+    bottom: clamp(1px ,0.3vw, 900px);
 
-    width: clamp(180px, 18vw, 320px);
+    width: clamp(1px ,25vw, 900px);
     height: auto;
 
+    max-width: none;
     z-index: 1;
 }
 
@@ -154,23 +157,21 @@ li{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    font-size: 650%;
-    margin-top: 60px;
 
-    /* Off-white main text color */
+    padding: 20px;
+    font-size: clamp(1px,13vw, 900px);
+    margin-top: clamp(1px, 8vw, 900px);
+
     color: #E8E6DF;
 
-    /* Crisp dark edge */
     -webkit-text-stroke: 1.5px #0B0B0B;
 
-    /* Black and crimson red layered behind and below */
-    text-shadow: 
+    text-shadow:
         0px 3px 0px #0B0B0B,
         0px 6px 0px #0B0B0B,
         0px 9px 10px rgba(0, 0, 0, 0.9),
         0px 10px 22px #263D50,
-        0px 0px 35px #263D50
+        0px 0px 35px #263D50;
 }
 
 #tanjiro:hover{
