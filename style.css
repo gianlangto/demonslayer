@@ -95,11 +95,13 @@ li{
 
 #tanjiro {
     position: absolute;
-    right: 5%;          /* Distance from the right edge */
-    bottom: 0.5%;          /* Aligns him to the bottom edge of the GIF */
-    width: 200px;       /* Adjust this number to make him smaller or larger */
-    height: auto;       /* Keeps his proportions from stretching */
-    z-index: 1;         /* Places him in front of the GIF */
+    right: 5%;
+    bottom: 0.5%;
+
+    width: clamp(180px, 18vw, 320px);
+    height: auto;
+
+    z-index: 1;
 }
 
 /* Hidden by default (Landscape / Desktop) */
@@ -133,6 +135,7 @@ li{
     width: auto;
     background-color: #4B2C2F;
     z-index: 50;
+    color: #4B2C2F;
 }
 
 .second{
