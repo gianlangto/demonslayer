@@ -14,6 +14,11 @@
 </head>
 
 <body>
+    
+<!--    <div id="loader-wrapper">
+  <img src="loader-ring.png" alt="Loading..." class="loader-ring">
+</div>
+-->
   
   <div id="rotate-warning">
     <p>Please rotate your device to landscape mode for the best experience.</p>
@@ -39,14 +44,60 @@
     
     
      <img id="tanjiro" src="1000165330-removebg-preview.png">
+     
+   <!--  <div class="schar">
+    <img src="zenitsu.png" alt="" />
+    <img src="inosuke.png" alt="" />
+    <img src="nezuko.png" alt="" />
+</div> --->
     
 </section>
 
 <div class="filler">
-    .   
+      
 </div>
 
-<img class="second" src="download.gif" alt="" />
+<section class="2nd">
+    <h1>GALLERY</h1>
+    <div class="band top">
+  <div class="track">
+    <img src="img1.jpeg"> <img src="img2.jpeg"> <img src="img3.jpeg"> <img src="img4.jpeg">
+    <img src="img5.jpeg"> <img src="img6.jpeg"> <img src="img7.jpeg"> <img src="img8.jpeg">
+    <img src="img9.jpeg"> <img src="img10.jpeg"> <img src="img11.jpeg"> <img src="img12.jpeg">
+    <img src="img13.jpeg"> <img src="img14.jpeg"> <img src="img15.jpeg"> <img src="img16.jpeg">
+    <img src="img17.jpeg"> <img src="img18.jpeg"> <img src="img19.jpeg"> <img src="img20.jpeg">
+    <img src="img21.jpeg"> <img src="img22.jpeg"> <img src="img23.jpeg">
+  </div>
+</div>
+
+<div class="band bottom">
+  <div class="track">
+    <img src="img24.jpeg"> <img src="img25.jpeg"> <img src="img26.jpeg">
+    <img src="images (82).jpeg"> <img src="images (83).jpeg"> <img src="images (84).jpeg">
+    <img src="images (85).jpeg"> <img src="images (86).jpeg"> <img src="images (87).jpeg">
+    <img src="images (88).jpeg"> <img src="images (89).jpeg"> <img src="images (90).jpeg">
+    <img src="images (91).jpeg"> <img src="images (92).jpeg"> <img src="images (93).jpeg">
+    <img src="images (94).jpeg"> <img src="images (95).jpeg"> <img src="images (96).jpeg">
+    <img src="images (97).jpeg"> <img src="images (98).jpeg"> <img src="images (99).jpeg">
+    <img src="images (100).jpeg">
+  </div>
+</div>
+
+<script>
+  function build() {
+    document.querySelectorAll('.track').forEach(track => {
+      if (!track.dataset.orig) track.dataset.orig = track.innerHTML;
+      track.innerHTML = track.dataset.orig;
+      const setW = track.scrollWidth;
+      const copies = Math.ceil(window.innerWidth / setW) + 1;
+      track.innerHTML = track.dataset.orig.repeat(copies);
+      track.style.setProperty('--shift', setW + 'px');
+    });
+  }
+build();
+window.addEventListener('resize', build);
+</script>
+</section>
 
 
 </body>

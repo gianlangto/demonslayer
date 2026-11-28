@@ -6,6 +6,32 @@
 }
 
 
+/*#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #17191B; /* Dark background makes the red pop 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-ring {
+  width: 100px;
+  height: 100px;
+  animation: spin 1.5s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+*/
+
+
 * {
   margin: 0;
   padding: 0;
@@ -75,9 +101,9 @@ li:hover{
 }
 
 li{
-    font-size: clamp(1px, 2vw, 999px);
-    padding: clamp(1px, 1.2vw, 999px)
-             clamp(1px, 2vw, 999px);
+    font-size: clamp(1px, 2vw, 99999px);
+    padding: clamp(1px, 1.2vw, 99999px)
+             clamp(1px, 2vw, 99999px);
     list-style: none;
   margin: 0;
   
@@ -97,15 +123,31 @@ li{
 
 #tanjiro {
     position: absolute;
-    right: clamp(1px, 2vw, 900px);
-    bottom: clamp(1px ,0.3vw, 900px);
+    right: clamp(1px, 2vw, 99999px);
+    bottom: clamp(1px, 0.3vw, 99999px);
 
-    width: clamp(1px ,25vw, 900px);
+    width: clamp(1px, 25vw, 99999px);
     height: auto;
 
     max-width: none;
     z-index: 1;
+
+    /* Smooth Fade-In */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px); /* Subtle upward slide */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Hidden by default (Landscape / Desktop) */
 #rotate-warning {
@@ -136,9 +178,9 @@ li{
     
     height: 20%;
     width: auto;
-    background-color: #4B2C2F;
+    background-color: #17191B;
     z-index: 50;
-    color: #4B2C2F;
+    color: #17191B;
 }
 
 .second{
@@ -159,22 +201,167 @@ li{
     text-align: center;
 
     padding: 20px;
-    font-size: clamp(1px,13vw, 900px);
-    margin-top: clamp(1px, 8vw, 900px);
+    font-size: clamp(1px, 13vw, 99999px);
+    margin-top: clamp(1px, 8vw, 99999px);
 
     color: #E8E6DF;
 
     -webkit-text-stroke: 1.5px #0B0B0B;
 
-    text-shadow:
+    text-shadow: 
         0px 3px 0px #0B0B0B,
         0px 6px 0px #0B0B0B,
         0px 9px 10px rgba(0, 0, 0, 0.9),
         0px 10px 22px #263D50,
         0px 0px 35px #263D50;
+
+    /* --- Slide + Left-to-Right Fade --- */
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    -webkit-mask-size: 250% 100%;
+    mask-size: 250% 100%;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    
+    animation: slideFadeRight 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-#tanjiro:hover{
-    
-    
+@keyframes slideFadeRight {
+    0% {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+        opacity: 0;
+        transform: translateX(-35px); /* Starts slightly to the left */
+    }
+    100% {
+        -webkit-mask-position: 0% 0;
+        mask-position: 0% 0;
+        opacity: 1;
+        transform: translateX(0); /* Settles into its normal center position */
+    }
 }
+
+/* .schar {
+    display: flex;
+    justify-content: flex-start; /* Aligns the row to the left
+    align-items: center;
+    gap: clamp(1px, 5vw, 99999px);
+    padding-left: clamp(1px, 3vw, 99999px); /* Adds breathing room from the left edge 
+    position: absolute;
+    bottom: clamp(1px, 0vw, 99999px); /* Keeps them pinned near the bottom 
+    left: 0;
+}
+
+.schar img {
+    width: clamp(1px, 19vw, 99999px);
+    height: auto;
+
+    /* Tilts the image slightly to the left 
+    transform: rotate(-4deg);
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    /* Frosted glass box behind the transparent image 
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 10px;
+
+    /* Soft depth shadow 
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+*/
+
+section[class~="2nd"] {
+  --h: 170px;      /* image height */
+  --w: 240px;      /* image width */
+  --curve: 40px;   /* how deep the curve is */
+  --speed: 30s;    /* bigger = slower */
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+section[class~="2nd"] h1 {
+    font-size: clamp(1px, 13vw, 99999px);
+    margin-top: clamp(1px, 0vw, 99999px);
+
+    /* gif shows only inside the letters */
+    background-image: url("vfx1.gif");
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    /* cream outline on the sides */
+    -webkit-text-stroke: 3px #E8E6DF;
+    paint-order: stroke fill;
+
+    font-family: 'Blood Crow Condensed', fantasy;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.band {
+  overflow: hidden;
+  background: #17191B;
+  padding: 14px 0;
+}
+
+.track {
+  will-change: transform;
+  display: flex;
+  width: max-content;
+    --shift: 2000px;
+}
+
+.band img {
+  width: var(--w);
+  height: var(--h);
+  object-fit: cover;   /* all pictures same size, cropped to fit */
+  margin-right: 12px;
+  flex-shrink: 0;
+  display: block;
+  
+  background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 10px;
+
+    
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* upper row: concave bottom edge, moves right */
+.band.top {
+  padding-bottom: calc(14px + var(--curve));
+  -webkit-mask: radial-gradient(ellipse 50% var(--curve) at 50% 100%, transparent 99%, #000 100%);
+          mask: radial-gradient(ellipse 50% var(--curve) at 50% 100%, transparent 99%, #000 100%);
+}
+.band.top .track {
+  animation: toRight var(--speed) linear infinite;
+}
+
+/* lower row: convex top and bottom, fits into the upper row, moves left */
+.band.bottom {
+  margin-top: calc(var(--curve) * -1);
+  border-radius: 50% 50% 50% 50% / var(--curve) var(--curve) var(--curve) var(--curve);
+  padding-top: calc(14px + var(--curve));
+}
+.band.bottom .track {
+  animation: toLeft var(--speed) linear infinite;
+}
+
+@keyframes toRight {
+  from { transform: translateX(calc(var(--shift) * -1)); }
+  to   { transform: translateX(0); }
+}
+@keyframes toLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(var(--shift) * -1)); }
+}
+
