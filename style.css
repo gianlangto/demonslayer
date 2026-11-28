@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #17191B; /* Dark background makes the red pop 
+  background-color: #17191B; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,8 +29,8 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-*/
 
+*/
 
 * {
   margin: 0;
@@ -101,6 +101,9 @@ li:hover{
 }
 
 li{
+    
+    font-family: 'Blood Crow Condensed', fantasy;
+    font-weight: normal;
     font-size: clamp(1px, 2vw, 99999px);
     padding: clamp(1px, 1.2vw, 99999px)
              clamp(1px, 2vw, 99999px);
@@ -126,7 +129,7 @@ li{
     right: clamp(1px, 2vw, 99999px);
     bottom: clamp(1px, 0.3vw, 99999px);
 
-    width: clamp(1px, 25vw, 99999px);
+    width: clamp(1px, 23vw, 99999px);
     height: auto;
 
     max-width: none;
@@ -277,7 +280,7 @@ section[class~="2nd"] {
   --h: 170px;      /* image height */
   --w: 240px;      /* image width */
   --curve: 40px;   /* how deep the curve is */
-  --speed: 30s;    /* bigger = slower */
+  --speed: 80s;    /* bigger = slower */
   overflow: hidden;
   padding-bottom: 40px;
 }
@@ -365,3 +368,108 @@ section[class~="2nd"] h1 {
   to   { transform: translateX(calc(var(--shift) * -1)); }
 }
 
+.payo{
+    font-size: clamp(1px, 2vw, 99999px);
+    margin-top: clamp(1px, 14vw, 99999px);
+    letter-spacing: 3px;
+text-transform: uppercase;
+text-align: center;
+   font-family: 'Blood Crow Condensed', fantasy;
+    font-weight: normal; 
+    color: #E8E6DF;
+
+    -webkit-text-stroke: 1.5px #E8E6DF;
+
+    text-shadow: 
+        0px 3px 0px #0B0B0B,
+        0px 6px 0px #0B0B0B,
+        0px 9px 10px rgba(0, 0, 0, 0.9),
+        0px 10px 22px #263D50,
+        0px 0px 35px #263D50;
+
+    /* --- Slide + Left-to-Right Fade --- */
+    -webkit-mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    mask-image: linear-gradient(to right, black 50%, transparent 100%);
+    -webkit-mask-size: 250% 100%;
+    mask-size: 250% 100%;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    
+    animation: slideFadeRight 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes slideFadeRight {
+    0% {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+        opacity: 0;
+        transform: translateX(-35px); /* Starts slightly to the left */
+    }
+    100% {
+        -webkit-mask-position: 0% 0;
+        mask-position: 0% 0;
+        opacity: 1;
+        transform: translateX(0); /* Settles into its normal center position */
+    }
+}
+
+#nezuko {
+    position: absolute;
+    right: clamp(1px, 2vw, 99999px);
+    bottom: clamp(1px, 0.3vw, 99999px);
+
+    width: clamp(1px, 19vw, 99999px);
+    height: auto;
+
+    max-width: none;
+    z-index: 1;
+
+    /* Smooth Fade-In */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px); /* Subtle upward slide */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alltext{
+    background: #101A35;
+    font-size: clamp(1px, 4vw, 99999px);
+     font-family: 'Blood Crow Condensed', fantasy;
+    font-weight: normal;
+    color: #E8E6DF;
+}
+
+.alt{
+    background-color: #172B50;
+}
+
+.note{
+    background-color: #111827;
+}
+
+.quote{
+    background-color: #172B50;
+}
+
+.eyes{
+    width: auto;      /* adjust to match heading height */
+    height: clamp(1px, 8vw, 99999px);      /* same height as the heading bar */
+    object-fit: cover; /* crops the eyes instead of stretching */
+    object-position: center;
+    margin-left: auto; /* pushes it to the right blank space */
+}
+
+.heading-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
